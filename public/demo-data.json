@@ -14,7 +14,6 @@
   "assumptions": {
     "analysisDate": "2026-10-09T00:00:00",
     "weeksPerMonth": 4.33,
-    "safetyStockWeeks": 2.0,
     "wacc": 0.12,
     "storageHandling": 0.03,
     "obsolescence": 0.05,

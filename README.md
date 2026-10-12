@@ -18,10 +18,11 @@ pnpm dev
 
 Open [http://127.0.0.1:4173](http://127.0.0.1:4173).
 
-## Type checking and production build
+## Checks and production build
 
 ```bash
 pnpm typecheck
+pnpm test
 pnpm build
 ```
 
@@ -45,7 +46,7 @@ The production output is written to `dist/` and is intentionally excluded from G
 - Separate at-risk inventory value and estimated potentially trapped capital
 - Verified financial outcomes only when actual proceeds, actual costs, and evidence are recorded
 - Local monthly issue aggregation and a simple linear time-trend demonstration with time-ordered validation
-- Configurable display currency and a Methodology & Assumptions page
+- Source-currency display with optional, explicitly rated illustrative conversion
 - Synthetic demo data loaded from `public/demo-data.json`
 
 ## Import columns
@@ -62,12 +63,17 @@ Optional columns include name, category, supplier, warehouse, purchase/receipt/i
 
 ## Method limits
 
-- Risk flags are review triggers, not disposal or scrap instructions.
-- Potentially trapped capital is an estimate based on stock above a simple consumption-and-lead-time target and the configured recovery assumption.
-- Projected carrying cost is shown only when both a confirmed requirement date and lead time are available.
-- Forecasting requires at least six dated monthly issue observations for a SKU. It uses a simple linear trend and a final-period holdout; it is illustrative, not a production forecast.
+- Risk flags are review triggers. Return, exchange, and transfer must be investigated before any separately authorized scrap decision.
+- Risk is `Insufficient data`, never `Low`, when material age, movement history, or FSN classification is unavailable.
+- Safety time is 50% of supplier lead time. Stock coverage uses lead time plus that safety time.
+- Potentially trapped capital requires a confirmed requirement date, lead time, and consumption. Missing inputs produce `Unavailable`, not zero.
+- Projected carrying cost requires a confirmed requirement date and lead time, and subtracts lead time plus its 50% safety time from the holding period.
+- Forecasting requires at least six observed monthly issues. Calendar gaps remain missing unless the source period is explicitly confirmed complete; only then may gaps become zero-issue months.
+- MAE and RMSE use the final chronologically held-out observations. The demonstration makes no production accuracy claim.
+- Numeric demand regression is separate from slow-moving, non-moving, and excess probabilities, which remain unavailable without labeled outcomes.
+- Category time-series analysis is unavailable for the included uncategorized dataset.
 - Correlations use paired available observations only and report an unavailable state for insufficient data or zero variance.
-- Changing the currency changes the display label and formatting; it does not perform foreign-exchange conversion.
+- Values remain in the identified source currency unless a positive, visible illustrative exchange-rate assumption is supplied.
 - Imported data exists only in the current browser session and is not uploaded or persisted.
 
 ## Data and security

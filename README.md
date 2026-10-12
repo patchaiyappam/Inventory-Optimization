@@ -6,7 +6,7 @@ The included 200-SKU dataset is synthetic. The application does not include a ba
 
 ## Requirements
 
-- Node.js 20 or later
+- Node.js 22.6 or later (required for the built-in TypeScript test runner)
 - pnpm 9 or later
 
 ## Install and run
@@ -60,6 +60,8 @@ Required columns:
 - Unit cost, price, or standard cost
 
 Optional columns include name, category, supplier, warehouse, purchase/receipt/issue dates, average monthly consumption, annual consumption value, lead time, MOQ, requirement date, ABC/FSN/XYZ classes, inventory age, and coefficient of variation. Missing optional inputs remain explicitly unavailable; they are not presented as observed data.
+
+An explicitly supplied valid inventory age remains usable when a purchase or receipt date is absent. The missing source date is still reported as a limitation because the supplied age cannot be independently recalculated from the import.
 
 ## Method limits
 

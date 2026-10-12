@@ -5,10 +5,14 @@
     "sourceLabel": "Synthetic workbook dataset supplied by the user",
     "currency": "USD",
     "generatedAt": "2026-10-11T21:44:31.615721",
+    "transactionCoverageStart": "2023-01",
+    "transactionCoverageEnd": "2026-07",
+    "transactionSourceComplete": false,
     "limitations": [
       "Warehouse, supplier type, open purchase orders and confirmed future requirements are not present in the workbook.",
       "Recovery value uses a visible, configurable 40% scenario rate; it is an estimate, not a verified outcome.",
-      "Transaction unit cost, reference document and remarks are not present in the source transaction log."
+      "Transaction unit cost, reference document and remarks are not present in the source transaction log.",
+      "Dated transactions span January 2023 through July 2026, but completeness is not confirmed; absent monthly issues remain missing rather than zero."
     ]
   },
   "assumptions": {

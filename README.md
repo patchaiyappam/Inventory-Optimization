@@ -71,6 +71,7 @@ An explicitly supplied valid inventory age remains usable when a purchase or rec
 - Potentially trapped capital requires a confirmed requirement date, lead time, and consumption. Missing inputs produce `Unavailable`, not zero.
 - Projected carrying cost requires a confirmed requirement date and lead time, and subtracts lead time plus its 50% safety time from the holding period.
 - Forecasting requires at least six observed monthly issues. Calendar gaps remain missing unless the source period is explicitly confirmed complete; only then may gaps become zero-issue months.
+- The synthetic transaction log spans January 2023 through July 2026. SKU forecasts use that global window, disclose leading/intermediate/trailing missing observations, and begin their horizon after July 2026.
 - MAE and RMSE use the final chronologically held-out observations. The demonstration makes no production accuracy claim.
 - Numeric demand regression is separate from slow-moving, non-moving, and excess probabilities, which remain unavailable without labeled outcomes.
 - Category time-series analysis is unavailable for the included uncategorized dataset.
